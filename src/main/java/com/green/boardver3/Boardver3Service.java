@@ -1,6 +1,7 @@
 package com.green.boardver3;
 
 import com.green.boardver3.model.Boardver3InsDto;
+import com.green.boardver3.model.UpdateDto;
 import com.green.boardver3.model.UserLoginDto;
 import com.green.boardver3.model.UserLoginVo;
 import com.green.boardver3.utils.CommonUtils;
@@ -34,5 +35,9 @@ public class Boardver3Service {
             return 1;
         }
         return 3;
+    }
+
+    public int updBoard(UpdateDto dto) {
+        return mapper.updBoard(dto);
     }
 }
