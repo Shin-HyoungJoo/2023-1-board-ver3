@@ -20,6 +20,6 @@ public class Boardver3Controller {
 
     @PostMapping
     public int postBoard(@RequestBody Boardver3InsDto dto) {
-        return service.insBoard(Boardver3InsDto dto);
+        return service.insBoard(dto);
     }
 }

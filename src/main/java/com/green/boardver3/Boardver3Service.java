@@ -14,6 +14,6 @@ public class Boardver3Service {
     }
 
     public int insBoard(Boardver3InsDto dto) {
-        return mapper.insBoard(Boardver3InsDto dto);
+        return mapper.insBoard(dto);
     }
 }
