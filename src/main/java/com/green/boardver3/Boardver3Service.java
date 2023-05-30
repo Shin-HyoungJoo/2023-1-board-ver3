@@ -25,7 +25,7 @@ public class Boardver3Service {
     }
 
     public int login(UserLoginDto dto) {
-        UserLoginVo vo = mapper.selUserByUid(dto);    //셀렉트 최종값//셀렉트 최종값
+        UserLoginVo vo = mapper.selUserByUid(dto);
         if(vo == null) {
             return 2;
         }
