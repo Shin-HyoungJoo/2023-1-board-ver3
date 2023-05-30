@@ -1,13 +1,11 @@
 package com.green.boardver3;
 
 import com.green.boardver3.model.Boardver3InsDto;
+import com.green.boardver3.model.UpdateDto;
 import com.green.boardver3.model.UserLoginDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -39,5 +37,10 @@ public class Boardver3Controller {
             "(3) 비밀번호 다름")
     public int postLoginUser(@RequestBody UserLoginDto dto) {
         return service.login(dto);
+    }
+    @PatchMapping("/pw")
+    @Operation
+    public int UpdPw(@RequestBody UpdateDto dto) {
+        return service.updBoard(dto);
     }
 }
