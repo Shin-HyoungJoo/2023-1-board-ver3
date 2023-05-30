@@ -1,9 +1,9 @@
-package com.green.boardver3;
+package com.green.boardver3.user;
 
-import com.green.boardver3.model.UserInsDto;
-import com.green.boardver3.model.UpdateDto;
-import com.green.boardver3.model.UserLoginDto;
-import com.green.boardver3.model.UserLoginVo;
+import com.green.boardver3.user.model.UserInsDto;
+import com.green.boardver3.user.model.UpdateDto;
+import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserLoginVo;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

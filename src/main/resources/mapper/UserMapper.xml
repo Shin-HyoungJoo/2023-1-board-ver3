@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.boardver3.UserMapper">
+<mapper namespace="com.green.boardver3.user.UserMapper">
 
-    <insert id="insBoard">
+    <insert id="insUser">
         INSERT INTO t_user
         ( uid, pw, nm, gender, addr)
         VALUE
@@ -22,6 +22,4 @@
         set pw = #{pw}
         WHERE iuser = #{iuser}
     </update>
-
-    <insert id=""
 </mapper>

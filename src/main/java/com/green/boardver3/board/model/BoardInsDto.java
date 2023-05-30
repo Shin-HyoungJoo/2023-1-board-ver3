@@ -1,5 +1,8 @@
-package com.green.boardver3.model;
+package com.green.boardver3.board.model;
 
+import lombok.Data;
+
+@Data
 public class BoardInsDto {
     private int iuser;
     private String title;
