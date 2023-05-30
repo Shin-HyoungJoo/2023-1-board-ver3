@@ -3,7 +3,7 @@ package com.green.boardver3.model;
 import lombok.Data;
 
 @Data
-public class Boardver3InsDto {
+public class UserInsDto {
     String uid;
     String pw;
     String nm;

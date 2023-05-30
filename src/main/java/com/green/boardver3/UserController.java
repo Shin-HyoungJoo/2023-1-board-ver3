@@ -1,6 +1,6 @@
 package com.green.boardver3;
 
-import com.green.boardver3.model.Boardver3InsDto;
+import com.green.boardver3.model.UserInsDto;
 import com.green.boardver3.model.UpdateDto;
 import com.green.boardver3.model.UserLoginDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-public class Boardver3Controller {
+public class UserController {
 
-    private final Boardver3Service service;
+    private final UserService service;
 
     @Autowired
-    public Boardver3Controller(Boardver3Service service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
@@ -25,7 +25,7 @@ public class Boardver3Controller {
             "nm: [30] 회원명 <br>" +
             "gender: [1] 성별(M: 남성, F: 여성) <br>" +
             "addr: [100] 주소")
-    public int postBoard(@RequestBody Boardver3InsDto dto) {
+    public int postBoard(@RequestBody UserInsDto dto) {
         return service.insBoard(dto);
     }
 
