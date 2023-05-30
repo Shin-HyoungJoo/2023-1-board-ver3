@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.boardver3.Boardver3Mapper">
+
+    <insert id="insBoard">
+        INSERT INTO t_user
+        ( uid, pw, nm, gender, addr)
+        VALUE
+        ( #{uid}, #{pw}, #{nm}, #{gender}, #{addr} )
+    </insert>
+
+    <select id="selUserByUid" resultType="UserLoginVo">
+        SELECT iuser, uid, pw, nm, gender, addr, main_pic mainPic
+        FROM t_user
+        WHERE uid = #{uid}
+
+    </select>
+
+    <update id="updBoard">
+        UPDATE t_user
+        set pw = #{pw}
+        WHERE iuser = #{iuser}
+
+    </update>
+</mapper>
