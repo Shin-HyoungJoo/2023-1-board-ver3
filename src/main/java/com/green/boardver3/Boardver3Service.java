@@ -1,6 +1,8 @@
 package com.green.boardver3;
 
 import com.green.boardver3.model.Boardver3InsDto;
+import com.green.boardver3.model.UserLoginDto;
+import com.green.boardver3.model.UserLoginVo;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +22,17 @@ public class Boardver3Service {
         String hashPw = commonUtils.encodeSha256(dto.getPw());
         dto.setPw(hashPw);
         return mapper.insBoard(dto);
+    }
+
+    public int login(UserLoginDto dto) {
+        UserLoginVo vo = mapper.selUserByUid(dto);    //셀렉트 최종값//셀렉트 최종값
+        if(vo == null) {
+            return 2;
+        }
+        String hashedPw = commonUtils.encodeSha256(dto.getPw());
+        if(vo.getPw().equals(hashedPw)) {
+            return 1;
+        }
+        return 3;
     }
 }
