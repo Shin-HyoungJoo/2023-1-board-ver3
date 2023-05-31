@@ -28,9 +28,9 @@ public class BoardService {
         return mapper.selBoard(dto);
     }
     public List<BoardVo> selMaxBoard(BoardDto dto) {
-        int max_page = /dto.getRow();
-        dto.setStartIdx((dto.getPage()-1) * );
-        dto.setRowLen();
+        int max_row = mapper.selBoardCount();
+        int max_page = max_row/ dto.getRow();
+        dto.setStartIdx((dto.getPage()-1) * max_page);
         return mapper.selMaxBoard(dto);
     }
 

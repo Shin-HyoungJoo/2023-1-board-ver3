@@ -17,6 +17,8 @@
         WHERE uid = #{uid}
     </select>
 
+
+
     <update id="updBoard">
         UPDATE t_user
         set pw = #{pw}

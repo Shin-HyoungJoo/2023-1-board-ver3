@@ -27,4 +27,9 @@
         ORDER BY iboard DESC
         LIMIT ${startIdx}, ${rowLen}
     </select>
+    <select id="selBoardCount" resultType="int">
+        select count(iuser)
+        FROM t_board
+
+    </select>
 </mapper>

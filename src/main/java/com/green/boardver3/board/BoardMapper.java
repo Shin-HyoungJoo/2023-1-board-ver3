@@ -12,5 +12,5 @@ public interface BoardMapper {
     int insBoard(BoardInsDto dto);
     List<BoardVo> selBoard(BoardDto dto);
     List<BoardVo> selMaxBoard(BoardDto dto);
-
+    int selBoardCount();
 }
