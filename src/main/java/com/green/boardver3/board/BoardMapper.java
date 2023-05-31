@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDetailVo;
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -13,4 +14,5 @@ public interface BoardMapper {
     List<BoardVo> selBoard(BoardDto dto);
     int selMaxBoard(int row);
 
+    BoardDetailVo selBoardDetail(BoardDto dto);
 }

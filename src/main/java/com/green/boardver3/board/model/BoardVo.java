@@ -10,6 +10,6 @@ public class BoardVo {
     private int iboard;
     private String title;
     private String createdAt;
-    private String iuser;
+    private String writer;
     private String writerMainPic;
 }
