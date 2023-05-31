@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDetailVo;
-import com.green.boardver3.board.model.BoardDto;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,5 +40,13 @@ public class BoardController {
         BoardDto dto = new BoardDto();
         dto.setIboard(iboard);
         return service.selBoardDetail(dto);
+    }
+
+    @DeleteMapping
+    public int delBoard(@RequestParam int iboard, int iuser) {
+        BoardDelDto dto = new BoardDelDto();
+        dto.setIboard(iboard);
+        dto.setIuser(iuser);
+        return service.delBoard(dto);
     }
 }

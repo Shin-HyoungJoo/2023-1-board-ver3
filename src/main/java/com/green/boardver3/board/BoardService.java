@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDetailVo;
-import com.green.boardver3.board.model.BoardDto;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +34,7 @@ public class BoardService {
         return mapper.selBoardDetail(dto);
     }
 
-
+    public int delBoard(BoardDelDto dto) {
+        return mapper.delBoard(dto);
+    }
 }
