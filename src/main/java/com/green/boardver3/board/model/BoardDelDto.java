@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class BoardDelDto {
-    private String iuser;
-    private String iboard;
+    private int iuser;
+    private int iboard;
 }
