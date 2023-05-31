@@ -37,4 +37,8 @@ public class BoardService {
     public int delBoard(BoardDelDto dto) {
         return mapper.delBoard(dto);
     }
+
+    public int updBoard(BoardUpdDto dto) {
+        return mapper.updBoard(dto);
+    }
 }

@@ -41,8 +41,8 @@
     <update id="updBoard">
         UPDATE t_board
         SET
-        title = #{title}
-        ctnt = #{ctnt}
+        title = #{title},
+        ctnt = #{ctnt},
         updated_at = CURRENT_TIMESTAMP
         WHERE iuser = #{iuser}
         AND iboard = #{iboard}
