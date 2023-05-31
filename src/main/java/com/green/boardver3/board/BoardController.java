@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDetailVo;
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -26,15 +27,21 @@ public class BoardController {
     @GetMapping
     public List<BoardVo> getBoard(@RequestParam(defaultValue = "1") int page,
                                   @RequestParam(defaultValue = "30") int row) {
-        BoardDto d1 = BoardDto.builder()
-                .page(page)
-                .row(row)
-                .build();
+        BoardDto d1 = new BoardDto();
+        d1.setRow(row);
+        d1.setPage(page);
         return service.selBoard(d1);
     }
 
     @GetMapping("/maxpage")
     public int getMaxBoard(@RequestParam int row) {
         return service.selMaxBoard(row);
+    }
+
+    @GetMapping("/{iboard}")
+    public BoardDetailVo getDetailBoard(@PathVariable int iboard) {
+        BoardDto dto = new BoardDto();
+        dto.setIboard(iboard);
+        return service.selBoardDetail(dto);
     }
 }

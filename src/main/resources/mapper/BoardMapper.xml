@@ -11,7 +11,7 @@
     </insert>
 
     <select id="selBoard" resultType="BoardVo">
-        SELECT A.iboard, A.title, A.created_at createdAt, B.nm writer
+        SELECT A.iboard, A.title, A.created_at createdAt, B.nm writer, B.main_pic writerMainPic
         from t_board A
         INNER JOIN t_user B
         ON A.iuser = B.iuser
@@ -24,10 +24,10 @@
         from t_board
     </select>
 
-    <select id="selBoardDetail" resultType="">
+    <select id="selBoardDetail" resultType="BoardDetailVo">
         SELECT *
         FROM t_board
-        WHERE iuser = ${iuser}
+        WHERE iboard = ${iboard}
     </select>
 
 </mapper>

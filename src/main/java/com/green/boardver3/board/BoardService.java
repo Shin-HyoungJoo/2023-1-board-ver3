@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDetailVo;
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -30,5 +31,9 @@ public class BoardService {
     public int selMaxBoard(int row) {
         int count = mapper.selMaxBoard(row);
         return (int)Math.ceil((double) count / row);
+    }
+
+    public BoardDetailVo selBoardDetail(BoardDto dto) {
+        return mapper.selBoardDetail(dto);
     }
 }
