@@ -10,5 +10,4 @@ public class BoardDto {
     private int startIdx;
     private int rowLen;
     private int row;
-
 }
