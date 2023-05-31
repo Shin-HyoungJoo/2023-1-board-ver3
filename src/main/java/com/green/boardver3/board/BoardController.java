@@ -24,12 +24,12 @@ public class BoardController {
     }
 
     @GetMapping
-    public List<BoardVo> getBoard(int page, int row) {
-        BoardDto d1 = new BoardDto();
-        d1.setPage(page);
-        d1.setRow(row);
-        return service.selBoardAll(d1);
-
+    public List<BoardVo> getBoard(@RequestParam(defaultValue = "1") int page,
+                                  @RequestParam(defaultValue = "30") int row) {
+        BoardDto d1 = BoardDto.builder()
+                .page(page)
+                .row(row)
+                .build();
+        return service.selBoard(d1);
     }
-
 }

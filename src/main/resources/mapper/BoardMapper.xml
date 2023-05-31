@@ -10,11 +10,12 @@
         ( #{iuser}, #{title}, #{ctnt})
     </insert>
 
-    <select id="selBoardAll" resultType="BoardVo">
-        SELECT iboard, iuser, title, created_at createdAt
-        from t_board
-        order by iboard desc
-        limit ${startIdx}, ${rowLen}
-
+    <select id="selBoard" resultType="BoardVo">
+        SELECT A.iboard, A.title, A.created_at createdAt, B.nm writer
+        from t_board A
+        INNER JOIN t_user B
+        ON A.iuser = B.iuser
+        ORDER BY iboard DESC
+        LIMIT ${startIdx}, ${rowLen}
     </select>
 </mapper>
