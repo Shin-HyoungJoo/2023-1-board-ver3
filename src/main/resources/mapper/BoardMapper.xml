@@ -25,8 +25,10 @@
     </select>
 
     <select id="selBoardDetail" resultType="BoardDetailVo">
-        SELECT *
-        FROM t_board
+        SELECT A.iboard, A.title, A.ctnt, B.nm writer, A.created_at, A.updated_at
+        FROM t_board A
+        INNER JOIN t_user B
+        ON A.iuser = B.iuser
         WHERE iboard = ${iboard}
     </select>
 
