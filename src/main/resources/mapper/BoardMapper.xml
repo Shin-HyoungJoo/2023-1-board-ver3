@@ -19,12 +19,9 @@
         LIMIT ${startIdx}, ${rowLen}
     </select>
 
-    <select id="selMaxBoard" resultType="BoardVo">
-        SELECT A.iboard, A.title, A.created_at createdAt, B.nm writer
-        from t_board A
-        INNER JOIN t_user B
-        ON A.iuser = B.iuser
-        ORDER BY iboard DESC
-        LIMIT ${startIdx}, ${rowLen}
+    <select id="selMaxBoard" resultType="int">
+        SELECT CEIL(count(iboard) / ${row})
+        from t_board
     </select>
+
 </mapper>

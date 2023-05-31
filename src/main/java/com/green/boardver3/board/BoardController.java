@@ -34,10 +34,7 @@ public class BoardController {
     }
 
     @GetMapping("/maxpage")
-    public List<BoardVo> getMaxBoard(@RequestParam(defaultValue = "30") int row) {
-        BoardDto d2 = BoardDto.builder()
-                .row(row)
-                .build();
-        return service.selMaxBoard(d2);
+    public int getMaxBoard(@RequestParam int row) {
+        return service.selMaxBoard(row);
     }
 }
