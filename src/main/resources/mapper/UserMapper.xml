@@ -7,7 +7,7 @@
     <insert id="insUser">
         INSERT INTO t_user
         ( uid, pw, nm, gender, addr)
-        VALUE
+        VALUES
         ( #{uid}, #{pw}, #{nm}, #{gender}, #{addr} )
     </insert>
 
