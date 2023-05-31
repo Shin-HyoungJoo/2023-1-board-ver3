@@ -4,6 +4,6 @@ import com.green.boardver3.cmt.model.CmtInsDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public class CmtMapper {
+public interface CmtMapper {
     int insCmt (CmtInsDto dto);
 }
