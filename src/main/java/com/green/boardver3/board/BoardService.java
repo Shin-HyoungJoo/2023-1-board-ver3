@@ -36,4 +36,6 @@ public class BoardService {
     public BoardDetailVo selBoardDetail(BoardDto dto) {
         return mapper.selBoardDetail(dto);
     }
+
+
 }

@@ -34,7 +34,8 @@
 
     <delete id="delBoard">
         DELETE FROM t_board
-        WHERE iuser = ${iuser} AND iboard = ${iboard}
+        WHERE iuser = #{iuser}
+        AND iboard = #{iboard}
     </delete>
 
 </mapper>
