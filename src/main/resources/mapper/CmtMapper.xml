@@ -5,8 +5,10 @@
 <mapper namespace="com.green.boardver3.cmt.CmtMapper">
     <insert id="insCmt">
         INSERT INTO t_board_cmt
-        (iboard, iuser, ctnt)
+        (ctnt)
         VALUE
-        (#{iboard}, #{iuser}, #{ctnt})
+        (#{ctnt})
+        WHERE iboard = {#iboard}
+        AND iuser = {#iuser}
     </insert>
 </mapper>
