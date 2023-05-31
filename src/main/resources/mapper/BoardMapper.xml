@@ -24,4 +24,10 @@
         from t_board
     </select>
 
+    <select id="selBoardDetail" resultType="">
+        SELECT *
+        FROM t_board
+        WHERE iuser = ${iuser}
+    </select>
+
 </mapper>
