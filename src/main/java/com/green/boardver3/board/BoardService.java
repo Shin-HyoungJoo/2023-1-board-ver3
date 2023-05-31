@@ -28,6 +28,7 @@ public class BoardService {
         return mapper.selBoard(dto);
     }
     public int selMaxBoard(int row) {
-        return mapper.selMaxBoard(row);
+        int count = mapper.selMaxBoard(row);
+        return (int)Math.ceil((double) count / row);
     }
 }
