@@ -8,7 +8,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class BoardVo {
     private int iboard;
-    private String iuser;
     private String title;
     private String createdAt;
+    private String iuser;
+    private String writerMainPic;
 }

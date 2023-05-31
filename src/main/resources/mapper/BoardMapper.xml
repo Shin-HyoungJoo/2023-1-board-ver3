@@ -20,7 +20,7 @@
     </select>
 
     <select id="selMaxBoard" resultType="int">
-        SELECT CEIL(count(iboard) / ${row})
+        SELECT count(iboard)
         from t_board
     </select>
 
