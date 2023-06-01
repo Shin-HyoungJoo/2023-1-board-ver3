@@ -34,5 +34,10 @@
         WHERE iboard_cmt = #{iboardCmt}
     </update>
 
+    <select id="selCountCmt">
+        SELECT COUNT(iboard)
+        FROM t_board_cmt
+        WHERE iboard = #{iboard};
+    </select>
 
 </mapper>
