@@ -44,6 +44,7 @@ public class CmtService {
     }
 
     public int updCmt (CmtUpdDto dto) {
+
         return mapper.updCmt(dto);
     }
 
