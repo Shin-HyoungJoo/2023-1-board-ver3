@@ -43,6 +43,10 @@ public class CmtService {
         return mapper.delCmt(dto);
     }
 
+    public int updCmt (CmtUpdDto dto) {
+        return mapper.updCmt(dto);
+    }
+
     /*public List<CmtVo> selCmt(CmtDto dto) {
         int ROW_PER_PAGE = dto.getRow();
         dto.setRow(ROW_PER_PAGE);
