@@ -10,5 +10,5 @@ public interface CmtMapper {
     int insCmt (CmtIEntity dto);
     List<CmtVo> selCmt(CmtDto dto);
     int delCmt (CmtDelDto dto);
-    int updCmt (CmtUpdDto dto);
+    int updCmt (CmtIEntity dto);
 }
