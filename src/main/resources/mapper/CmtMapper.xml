@@ -18,4 +18,8 @@
         ORDER BY iboard_Cmt DESC
         LIMIT ${startIdx}, ${row}
     </select>
+
+
+
+
 </mapper>
