@@ -33,10 +33,13 @@ public class CmtService {
         return 0;
     }
 
-    public List<CmtVo> selBoardCmt(CmtDto dto) {
+    public CmtRes selBoardCmt(CmtDto dto) {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
-        return mapper.selCmt(dto);
+        List<CmtVo> list = mapper.selCmt(dto);
+
+
+        return CmtRes.builder().list(list).isMore(1).build();
     }
 
     public int delCmt(CmtDelDto dto) {
