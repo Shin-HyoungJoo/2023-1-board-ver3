@@ -20,8 +20,8 @@ public class CmtService {
     }
 
 
-    public int insCmt(CmtInsDto dto) {
-        CmtIEntity entity = new CmtIEntity();
+    public int insCmt(CmtIEntity entity) {
+//        CmtIEntity entity = new CmtIEntity();
         entity.setCtnt(entity.getCtnt());
         entity.setIboardCmt(entity.getIboardCmt());
         entity.setIuser(entity.getIuser());
@@ -36,10 +36,10 @@ public class CmtService {
         return 0;
     }
 
-    public List<CmtVo> selCmt(CmtDto dto) {
+    /*public List<CmtVo> selCmt(CmtDto dto) {
         int ROW_PER_PAGE = dto.getRow();
         dto.setRow(ROW_PER_PAGE);
         dto.setStartIdx((dto.getPage()-1)*ROW_PER_PAGE);
         return mapper.selCmt(dto);
-    }
+    }*/
 }

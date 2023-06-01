@@ -12,7 +12,7 @@
     </insert>
 
     <select id="selCmt" resultType="CmtVo">
-        SELECT iboard_Cmt, nm writer, ctnt, created_At, updated_At
+        SELECT iboardCmt , iboard , iuser, nm writer, writerMainPic, ctnt, created_At
         FROM t_board_cmt
         ON A.iuser = B.iuser
         ORDER BY iboard_Cmt DESC
