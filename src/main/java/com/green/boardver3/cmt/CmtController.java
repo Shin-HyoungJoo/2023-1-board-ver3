@@ -46,7 +46,7 @@ public class CmtController {
         return service.delCmt(dto);
     }
 
-    @PutMapping("/{iboardCmt}")
+    @PutMapping("/cmt/{iboardCmt}")
     public int putBoardCmt(@PathVariable int iboardCmt, @RequestBody CmtUpdDto dto) {
         CmtIEntity dto2 = new CmtIEntity();
         dto2.setIboardCmt(iboardCmt);
