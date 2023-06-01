@@ -36,6 +36,12 @@ public class CmtService {
         return 0;
     }
 
+    public List<CmtVo> selBoardCmt(CmtDto dto) {
+        int startIdx = (dto.getPage() - 1) * dto.getRow();
+        dto.setStartIdx(startIdx);
+        return mapper.selCmt(dto);
+    }
+
     /*public List<CmtVo> selCmt(CmtDto dto) {
         int ROW_PER_PAGE = dto.getRow();
         dto.setRow(ROW_PER_PAGE);
