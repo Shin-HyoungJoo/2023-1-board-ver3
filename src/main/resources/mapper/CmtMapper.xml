@@ -12,10 +12,11 @@
     </insert>
 
     <select id="selCmt" resultType="CmtVo">
-        SELECT iboardCmt , iboard , iuser, nm writer, writerMainPic, ctnt, created_At
-        FROM t_board_cmt
+        SELECT A.iboard_Cmt , A.iboard , A.iuser, B.nm writer, B.main_pic, A.ctnt, A.created_At
+        FROM t_board_cmt A
+        INNER JOIN t_user B
         ON A.iuser = B.iuser
-        ORDER BY iboard_Cmt DESC
+        WHERE A.iboard = #{iboard}
         LIMIT ${startIdx}, ${row}
     </select>
 
