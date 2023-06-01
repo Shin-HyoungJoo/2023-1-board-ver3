@@ -7,4 +7,5 @@ public class CmtDto {
     private int page;
     private int startIdx;
     private int row;
+    private int iboard;
 }
