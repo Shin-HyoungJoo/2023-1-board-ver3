@@ -47,12 +47,12 @@ public class CmtController {
     }
 
     @PutMapping("/{iboardCmt}")
-    public int putBoardCmt(@PathVariable int iboardCmt, @RequestParam int iuser, String ctnt) {
-        CmtUpdDto dto = new CmtUpdDto();
-        dto.setIboardCmt(iboardCmt);
-        dto.setIuser(iuser);
-        dto.setCtnt(ctnt);
-        return service.updCmt(dto);
+    public int putBoardCmt(@PathVariable int iboardCmt, @RequestBody CmtUpdDto dto) {
+        CmtIEntity dto2 = new CmtIEntity();
+        dto2.setIboardCmt(iboardCmt);
+        dto2.setIuser(dto.getIuser());
+        dto2.setCtnt(dto.getCtnt());
+        return service.updCmt(dto2);
     }
 
    /* @GetMapping("/{iboard}")
