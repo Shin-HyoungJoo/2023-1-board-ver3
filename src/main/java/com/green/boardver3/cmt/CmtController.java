@@ -38,7 +38,7 @@ public class CmtController {
         dto.setRow(row);
         return service.selBoardCmt(dto);
     }
-    @DeleteMapping("/{iboardCmt}")
+    @DeleteMapping("/cmt/{iboardCmt}")
     public int delBoardCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
         CmtDelDto dto = new CmtDelDto();
         dto.setIboardCmt(iboardCmt);
