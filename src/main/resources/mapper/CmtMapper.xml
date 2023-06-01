@@ -10,4 +10,12 @@
         (#{iboard}, #{iuser}, #{ctnt})
 
     </insert>
+
+    <select id="selCmt" resultType="CmtVo">
+        SELECT iboard_Cmt, nm writer, ctnt, created_At, updated_At
+        FROM t_board_cmt
+        ON A.iuser = B.iuser
+        ORDER BY iboard_Cmt DESC
+        LIMIT ${startIdx}, ${row}
+    </select>
 </mapper>
