@@ -22,7 +22,7 @@
 
     <delete id="delCmt">
         DELETE FROM t_board_cmt
-        WHERE iboard_Cmt = #{iboardCmt}
+        WHERE iboard_cmt = #{iboardCmt}
         AND iuser = #{iuser}
     </delete>
 

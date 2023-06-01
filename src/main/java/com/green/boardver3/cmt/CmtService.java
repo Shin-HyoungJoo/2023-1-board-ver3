@@ -1,9 +1,6 @@
 package com.green.boardver3.cmt;
 
-import com.green.boardver3.cmt.model.CmtDto;
-import com.green.boardver3.cmt.model.CmtIEntity;
-import com.green.boardver3.cmt.model.CmtInsDto;
-import com.green.boardver3.cmt.model.CmtVo;
+import com.green.boardver3.cmt.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +37,10 @@ public class CmtService {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
         return mapper.selCmt(dto);
+    }
+
+    public int delCmt(CmtDelDto dto) {
+        return mapper.delCmt(dto);
     }
 
     /*public List<CmtVo> selCmt(CmtDto dto) {

@@ -3,10 +3,7 @@ package com.green.boardver3.cmt;
 
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardVo;
-import com.green.boardver3.cmt.model.CmtDto;
-import com.green.boardver3.cmt.model.CmtIEntity;
-import com.green.boardver3.cmt.model.CmtInsDto;
-import com.green.boardver3.cmt.model.CmtVo;
+import com.green.boardver3.cmt.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/board/cmt")
+@RequestMapping("/board")
 public class CmtController {
     private final CmtService service;
 
@@ -40,6 +37,13 @@ public class CmtController {
         dto.setPage(page);
         dto.setRow(row);
         return service.selBoardCmt(dto);
+    }
+    @DeleteMapping("/{iboardCmt}")
+    public int delBoardCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
+        CmtDelDto dto = new CmtDelDto();
+        dto.setIboardCmt(iboardCmt);
+        dto.setIuser(iuser);
+        return service.delCmt(dto);
     }
 
    /* @GetMapping("/{iboard}")
