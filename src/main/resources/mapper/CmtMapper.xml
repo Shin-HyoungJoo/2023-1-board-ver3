@@ -47,4 +47,5 @@
         WHERE iboard = #{iboard};
     </select>
 
+
 </mapper>
