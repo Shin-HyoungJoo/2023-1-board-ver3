@@ -1,5 +1,6 @@
 package com.green.boardver3.cmt;
 
+import com.green.boardver3.board.model.BoardDelDto;
 import com.green.boardver3.cmt.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
