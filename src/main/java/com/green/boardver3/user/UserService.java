@@ -1,17 +1,19 @@
 package com.green.boardver3.user;
 
-import com.green.boardver3.user.model.UserInsDto;
-import com.green.boardver3.user.model.UpdateDto;
-import com.green.boardver3.user.model.UserLoginDto;
-import com.green.boardver3.user.model.UserLoginVo;
+import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UserService {
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
+
+    @Value("${file.dir")
+    private String fileDir;
 
     @Autowired
     public UserService(UserMapper mapper, CommonUtils commonUtils) {
@@ -41,7 +43,9 @@ public class UserService {
         return mapper.updBoard(dto);
     }
 
-    public int updUserPic() {
-        return 0;
+    public int updUserPic(MultipartFile pic, UserPacthDto dto) {
+        // user/pk/uuid.jpg
+
+        return mapper.updUserPic(dto);
     }
 }
