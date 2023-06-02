@@ -2,7 +2,9 @@ package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
+import com.green.boardver3.cmt.CmtService;
 import com.green.boardver3.cmt.model.CmtDelDto;
+import com.green.boardver3.cmt.model.CmtDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,12 +15,12 @@ import java.util.List;
 
 public class BoardService {
     private final BoardMapper mapper;
-    private final CmtMapper cmtMapper;  //CmtMapper 주소값 얻는 용도
+    private final CmtService cmtService;  //CmtMapper 주소값 얻는 용도
 
     @Autowired
-    public BoardService(BoardMapper mapper, CmtMapper cmtMapper) {
+    public BoardService(BoardMapper mapper, CmtService cmtService) {
         this.mapper = mapper;
-        this.cmtMapper = cmtMapper;
+        this.cmtService= cmtService;
     }
 
     public int insBoard(BoardInsDto dto) {
@@ -43,16 +45,24 @@ public class BoardService {
         int count = mapper.selMaxBoard(row);
         return (int)Math.ceil((double) count / row);
     }
+    @Transactional(rollbackFor = Exception.class)
+    public BoardDetailcmtVo selBoardDetail(BoardDto dto) {
+        CmtDto dto1 = new CmtDto();
+        dto1.setIboard(dto.getIboard());
+        dto1.setRow(dto.getRow());
+        dto1.setPage(dto.getPage());
 
-    public BoardDetailVo selBoardDetail(BoardDto dto) {
-        return mapper.selBoardDetail(dto);
+        return BoardDetailcmtVo.builder()
+                .boardDetailVo(mapper.selBoardDetail(dto))
+                .cmt(cmtService.selBoardCmt(dto1))
+                .build();
     }
     @Transactional(rollbackFor = Exception.class)
     //에러가뜨면 실행되는 구간의 코드도 실행이 안된다. (한묶음으로 친다)
     public int delBoard(BoardDelDto dto) throws Exception {
         CmtDelDto dto1 = new CmtDelDto();
         dto1.setIboard(dto.getIboard());
-        cmtMapper.delCmt(dto1);
+        cmtService.delCmt(dto1);
         int result = 0;
         result = mapper.delBoard(dto);
         if (result == 0) {
