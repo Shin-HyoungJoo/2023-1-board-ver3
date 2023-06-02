@@ -26,7 +26,7 @@
     <update id="updUserPic">
         UPDATE t_user
         SET
-        main_pic = #{main_pic}
+        main_pic = #{mainPic}
         WHERE iuser = #{iuser}
     </update>
 

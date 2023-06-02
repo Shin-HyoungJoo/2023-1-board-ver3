@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
 @Service
 public class UserService {
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
 
-    @Value("${file.dir")
+    @Value("${file.dir}")
     private String fileDir;
 
     @Autowired
@@ -46,6 +48,13 @@ public class UserService {
     public int updUserPic(MultipartFile pic, UserPacthDto dto) {
         // user/pk/uuid.jpg
 
-        return mapper.updUserPic(dto);
+        String dicPath = String.format("%s/user/%d",fileDir,dto.getIuser()); // D:/download/board3/user/1 경로
+        File dic = new File(dicPath);
+        if(!dic.exists()) {
+            dic.mkdirs();
+
+        }
+
+        return 0;
     }
 }
