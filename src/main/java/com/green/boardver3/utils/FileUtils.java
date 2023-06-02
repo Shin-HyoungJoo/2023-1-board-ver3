@@ -14,19 +14,8 @@ public class FileUtils {
     // uuid 이용, 랜덤값 파일명 리턴
     public static String makeRandomFileNm(String fileNm) {
         String uuid = UUID.randomUUID().toString();
+
         return uuid+"."+getExt(fileNm);
     }
 
-    public static void main(String[] args) {
-        String fileNm = "abcd.123.jpg";
-
-        String result = getExt(fileNm);
-        System.out.println(result);
-
-        String resultFileNm = getFileNm(fileNm);
-        System.out.println(resultFileNm);
-
-        String resultRandomFileNm = makeRandomFileNm(fileNm);
-        System.out.println(resultRandomFileNm);
-    }
 }

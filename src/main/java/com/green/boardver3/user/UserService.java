@@ -2,12 +2,14 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
+import com.green.boardver3.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 
 @Service
 public class UserService {
@@ -49,12 +51,22 @@ public class UserService {
         // user/pk/uuid.jpg
 
         String dicPath = String.format("%s/user/%d",fileDir,dto.getIuser()); // D:/download/board3/user/1 경로
+
+        String saveFilePath = dicPath + "/" + FileUtils.makeRandomFileNm(pic.getOriginalFilename());
         File dic = new File(dicPath);
+        File dic2 = new File(saveFilePath);
         if(!dic.exists()) {
             dic.mkdirs();
-
         }
+        try {
+            pic.transferTo(dic2);
 
-        return 0;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        UserPacthDto dto1 = new UserPacthDto();
+        dto1.setMainPic(saveFilePath);
+        dto1.setIuser(dto.getIuser());
+        return mapper.updUserPic(dto1);
     }
 }
