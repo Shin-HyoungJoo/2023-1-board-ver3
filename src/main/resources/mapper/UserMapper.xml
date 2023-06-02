@@ -17,14 +17,18 @@
         WHERE uid = #{uid}
     </select>
 
-
-
     <update id="updBoard">
         UPDATE t_user
         set pw = #{pw}
         WHERE iuser = #{iuser}
     </update>
 
+    <update id="updUserPic">
+        UPDATE t_user
+        SET
+        main_pic = #{main_pic}
+        WHERE iuser = #{iuser}
+    </update>
 
 
 

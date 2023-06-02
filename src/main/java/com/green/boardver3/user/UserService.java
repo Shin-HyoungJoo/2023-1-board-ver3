@@ -40,4 +40,8 @@ public class UserService {
     public int updBoard(UpdateDto dto) {
         return mapper.updBoard(dto);
     }
+
+    public int updUserPic() {
+        return 0;
+    }
 }
