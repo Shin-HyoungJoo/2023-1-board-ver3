@@ -41,7 +41,9 @@ public class CmtService {
         int count = mapper.selCountCmt(dto);
         int maxPage = (int)Math.ceil(count / dto.getRow());
 
-        if (dto.getPage() > maxPage) {
+
+//        민구방구
+        if (dto.getPage() == maxPage) {
             isMore = 0;
         } else {
             isMore = 1;
