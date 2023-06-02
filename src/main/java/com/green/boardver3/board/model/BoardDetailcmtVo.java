@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 @Builder
 public class BoardDetailcmtVo {
     private BoardDetailVo boardDetailVo;

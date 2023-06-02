@@ -51,6 +51,7 @@ public class BoardService {
         dto1.setIboard(dto.getIboard());
         dto1.setRow(dto.getRow());
         dto1.setPage(dto.getPage());
+
         return BoardDetailcmtVo.builder()
                 .boardDetailVo(mapper.selBoardDetail(dto))
                 .cmt(cmtService.selBoardCmt(dto1))
