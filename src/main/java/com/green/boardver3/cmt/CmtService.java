@@ -11,6 +11,7 @@ import java.util.List;
 public class CmtService {
     private final CmtMapper mapper;
 
+
     @Autowired
     public CmtService(CmtMapper mapper) {
         this.mapper = mapper;
@@ -37,17 +38,11 @@ public class CmtService {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
         List<CmtVo> list = mapper.selCmt(dto);
-        int isMore;
+
         int count = mapper.selCountCmt(dto);
-        int maxPage = (int)Math.ceil(count / dto.getRow());
+        int maxPage = (int)(Math.ceil((double)count / dto.getRow()));
+        int isMore = dto.getPage() >= maxPage ? 0 : 1;
 
-
-//        민구방구
-        if (dto.getPage() == maxPage) {
-            isMore = 0;
-        } else {
-            isMore = 1;
-        }
         return CmtRes.builder().list(list).isMore(isMore).build();
     }
 

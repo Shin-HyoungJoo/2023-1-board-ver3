@@ -1,6 +1,7 @@
 package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
+import com.green.boardver3.cmt.CmtMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,12 @@ import java.util.List;
 
 public class BoardService {
     private final BoardMapper mapper;
+    private final CmtMapper cmtMapper;  //CmtMapper 주소값 얻는 용도
 
     @Autowired
-    public BoardService(BoardMapper mapper) {
+    public BoardService(BoardMapper mapper, CmtMapper cmtMapper) {
         this.mapper = mapper;
+        this.cmtMapper = cmtMapper;
     }
 
     public int insBoard(BoardInsDto dto) {
@@ -44,6 +47,7 @@ public class BoardService {
     }
 
     public int delBoard(BoardDelDto dto) {
+        int result = cmtMapper.delBoardCmt(??);
         return mapper.delBoard(dto);
     }
 
