@@ -18,17 +18,4 @@ public class FileUtils {
         return uuid+"."+getExt(fileNm);
     }
 
-
-    public static void main(String[] args) {
-        String fileNm = "abcd.123.jpg";
-
-        String result = getExt(fileNm);
-        System.out.println(result);
-
-        String resultFileNm = getFileNm(fileNm);
-        System.out.println(resultFileNm);
-
-        String resultRandomFileNm = makeRandomFileNm(fileNm);
-        System.out.println(resultRandomFileNm);
-    }
 }
