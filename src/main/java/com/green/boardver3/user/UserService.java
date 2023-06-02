@@ -60,9 +60,19 @@ public class UserService {
         }
         try {
             pic.transferTo(dic2);
-
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        try {
+            int result = mapper.updUserPic(dto);
+            if(result == 0) {
+                throw new Exception("프로필 사진을 등록할 수 없습니다.");
+            }
+        } catch (Exception e) {
+            //파일 삭제
+            dic2.delete();
+            return 0;
         }
         UserPacthDto dto1 = new UserPacthDto();
         dto1.setMainPic(saveFilePath);
