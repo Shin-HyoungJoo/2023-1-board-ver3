@@ -36,9 +36,11 @@ public class BoardController {
     }
 
     @GetMapping("/{iboard}")
-    public BoardDetailVo getDetailBoard(@PathVariable int iboard) {
+    public BoardDetailcmtVo getDetailBoard(@PathVariable int iboard,@RequestParam int page, @RequestParam(defaultValue = "5") int row) {
         BoardDto dto = new BoardDto();
         dto.setIboard(iboard);
+        dto.setPage(page);
+        dto.setRow(row);
         return service.selBoardDetail(dto);
     }
 

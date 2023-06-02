@@ -43,7 +43,7 @@ public class CmtService {
         int maxPage = (int)(Math.ceil((double)count / dto.getRow()));
         int isMore = dto.getPage() >= maxPage ? 0 : 1;
 
-        return CmtRes.builder().list(list).isMore(isMore).build();
+        return CmtRes.builder().row(dto.getRow()).maxPage(maxPage).list(list).isMore(isMore).build();
     }
 
     public int delCmt(CmtDelDto dto) {
