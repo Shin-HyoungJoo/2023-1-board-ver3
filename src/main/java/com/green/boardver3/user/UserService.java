@@ -75,7 +75,6 @@ public class UserService {
             dic2.delete();
             return 0;
         }
-
         return mapper.updUserPic(dto);
     }
 }
