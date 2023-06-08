@@ -31,8 +31,8 @@ public class BoardController {
     }
 
     @GetMapping("/maxpage")
-    public int getMaxBoard(@RequestParam int row) {
-        return service.selMaxBoard(row);
+    public int getMaxBoardPage(@RequestParam int row) {
+        return service.selMaxBoardPage(row);
     }
 
     @GetMapping("/{iboard}")

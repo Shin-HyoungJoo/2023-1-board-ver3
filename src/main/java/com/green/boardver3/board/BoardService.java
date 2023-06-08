@@ -41,8 +41,8 @@ public class BoardService {
         dto.setRowLen(ROW_PER_PAGE);
         return mapper.selBoard(dto);
     }
-    public int selMaxBoard(int row) {
-        int count = mapper.selMaxBoard(row);
+    public int selMaxBoardPage(int row) {   //board 전체행 / row
+        int count = mapper.selBoardRowCount();
         return (int)Math.ceil((double) count / row);
     }
     @Transactional(rollbackFor = Exception.class)

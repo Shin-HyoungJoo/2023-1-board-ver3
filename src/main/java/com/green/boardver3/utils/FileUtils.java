@@ -14,7 +14,6 @@ public class FileUtils {
     // uuid 이용, 랜덤값 파일명 리턴
     public static String makeRandomFileNm(String fileNm) {
         String uuid = UUID.randomUUID().toString();
-
         return uuid+"."+getExt(fileNm);
     }
 

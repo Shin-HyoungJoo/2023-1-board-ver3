@@ -19,10 +19,6 @@ public class CmtService {
 
 
     public int insCmt(CmtIEntity entity) {
-//        CmtIEntity entity = new CmtIEntity();
-        entity.setCtnt(entity.getCtnt());
-        entity.setIboardCmt(entity.getIboardCmt());
-        entity.setIuser(entity.getIuser());
         try {
             int result = mapper.insCmt(entity);
             if (result == 1) {
@@ -40,7 +36,7 @@ public class CmtService {
         List<CmtVo> list = mapper.selCmt(dto);
 
         int count = mapper.selCountCmt(dto);
-        int maxPage = (int)(Math.ceil((double)count / dto.getRow()));
+        int maxPage = (int) (Math.ceil((double) count / dto.getRow()));
         int isMore = dto.getPage() >= maxPage ? 0 : 1;
 
         return CmtRes.builder().row(dto.getRow()).maxPage(maxPage).list(list).isMore(isMore).build();

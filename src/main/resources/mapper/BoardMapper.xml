@@ -19,7 +19,7 @@
         LIMIT ${startIdx}, ${rowLen}
     </select>
 
-    <select id="selMaxBoard" resultType="int">
+    <select id="selBoardRowCount" resultType="int">
         SELECT count(iboard)
         from t_board
     </select>

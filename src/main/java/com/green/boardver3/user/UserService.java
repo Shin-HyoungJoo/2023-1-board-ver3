@@ -33,14 +33,14 @@ public class UserService {
 
     public int login(UserLoginDto dto) {
         UserLoginVo vo = mapper.selUserByUid(dto);
-        if(vo == null) {
+        if(vo == null) {    //id, pw 입력x
             return 2;
         }
         String hashedPw = commonUtils.encodeSha256(dto.getPw());
         if(vo.getPw().equals(hashedPw)) {
-            return 1;
+            return 1;   //입력 성공
         }
-        return 3;
+        return 3;   //pw 틀림
     }
 
     public int updBoard(UpdateDto dto) {
@@ -49,9 +49,9 @@ public class UserService {
 
     public int updUserPic(MultipartFile pic, UserPacthDto dto) {
         // user/pk/uuid.jpg
+        //경로 폴더 생성, 폴더에 사진넣기, db에 경로넣기
 
         String dicPath = String.format("%s/user/%d",fileDir,dto.getIuser()); // D:/download/board3/user/1 경로
-
         String saveFilePath = dicPath + "/" + FileUtils.makeRandomFileNm(pic.getOriginalFilename());
         File dic = new File(dicPath);
         File dic2 = new File(saveFilePath);
