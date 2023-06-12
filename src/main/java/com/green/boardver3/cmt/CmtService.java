@@ -30,10 +30,10 @@ public class CmtService {
         return 0;
     }
 
-    public CmtRes selBoardCmt(CmtDto dto) {
+    public CmtRes selBoardCmt(CmtDto dto) { //댓글출력 & Res정보 출력
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
-        List<CmtVo> list = mapper.selCmt(dto);
+        List<CmtVo> list = mapper.selCmt(dto);  //댓글출력xml작동, list에담기
 
         int count = mapper.selCountCmt(dto);
         int maxPage = (int) (Math.ceil((double) count / dto.getRow()));

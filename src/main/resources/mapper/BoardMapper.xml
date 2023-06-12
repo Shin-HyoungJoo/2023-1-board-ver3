@@ -25,11 +25,11 @@
     </select>
 
     <select id="selBoardDetail" resultType="BoardDetailVo">
-        SELECT A.iboard, A.title, A.ctnt, B.nm writer, A.created_at, A.updated_at, B.main_pic
-        FROM t_board A
-        INNER JOIN t_user B
-        ON A.iuser = B.iuser
-        WHERE iboard = ${iboard}
+    SELECT A.iboard, A.title, A.ctnt, B.nm writer, A.created_at, A.updated_at, B.main_pic
+    FROM t_board A
+    INNER JOIN t_user B
+    ON A.iuser = B.iuser
+    WHERE iboard = ${iboard}
     </select>
 
     <delete id="delBoard">

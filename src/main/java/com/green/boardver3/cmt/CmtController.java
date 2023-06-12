@@ -36,7 +36,7 @@ public class CmtController {
         dto.setIboard(iboard);
         dto.setPage(page);
         dto.setRow(row);
-        return service.selBoardCmt(dto);
+        return service.selBoardCmt(dto);    //댓글출력 + Res정보출력
     }
     @DeleteMapping("/cmt/{iboardCmt}")
     public int delBoardCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
